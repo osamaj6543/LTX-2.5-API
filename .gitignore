@@ -85,3 +85,10 @@ wandb/
 
 # Binary files
 *.so
+
+# Frontend (Next.js) — root *.json rule must not ignore the app's config files
+!frontend/package.json
+!frontend/package-lock.json
+!frontend/tsconfig.json
+!frontend/next-env.d.ts
+!frontend/next.config.json

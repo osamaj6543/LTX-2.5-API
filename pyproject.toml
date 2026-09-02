@@ -1,6 +1,7 @@
 [tool.uv.sources]
 ltx-core = { workspace = true }
 ltx-pipelines = { workspace = true }
+ltx-api = { workspace = true }
 ltx-kernels = { path = "packages/ltx-kernels", editable = true }
 
 [tool.uv]
@@ -72,6 +73,7 @@ select = [
     "T20", # flake8-print
     "PT", # flake8-pytest
     "SIM", # flake8-simplify
+    "ASYNC", # flake8-async
     "ARG", # flake8-unused-arguments
     "PTH", # flake8--use-pathlib
     "ERA", # flake8-eradicate
@@ -125,4 +127,4 @@ ignore = [
 max-args = 10
 
 [tool.ruff.lint.isort]
-known-first-party = ["ltx_core", "ltx_pipelines", "ltx_trainer"]
+known-first-party = ["ltx_core", "ltx_pipelines", "ltx_api", "ltx_trainer"]

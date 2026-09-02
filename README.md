@@ -63,6 +63,19 @@ In cases of GPU memory constraints, consider `--quantization fp8-cast --offload 
 
 This is **DistilledPipeline**: the fast starting point. For **production quality** (slower, more VRAM), run [DFR](#dfr-production-quality) below. For other capabilities, see [Models](#full-model-list) and [Pipelines](#available-pipelines).
 
+### Web UI (LTX Studio)
+
+A professional Next.js frontend for the [`ltx-api`](packages/ltx-api/README.md) FastAPI server lives in [`frontend/`](frontend/README.md) — a Generation Studio with full CLI-parity controls, live SSE job progress with a streaming log console, an MP4 player/gallery, and an admin dashboard (API keys, GPU/VRAM, warm pipeline cache, queue control):
+
+```bash
+cd frontend
+npm install
+npm run dev            # http://localhost:3000
+```
+
+Point it at your API server via `/setup` and enable CORS on the server with `LTX_API_CORS_ORIGINS=["http://localhost:3000"]`. See the [frontend README](frontend/README.md) for details.
+
+
 ### DFR (production quality)
 
 **DFR** (Diffusion Fidelity Rendering) is the production-quality text/image-to-video path. It uses the **same distilled transformer** as the command above, plus a detailing IC-LoRA — extra generated keyframes and a spatial detailing pass. Expect longer runtime and more VRAM, not a different prompting style. Do not pass the full (dev) transformer.
